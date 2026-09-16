@@ -43,3 +43,28 @@ document.addEventListener("DOMContentLoaded", () => {
   textElement.textContent = "";
   typeText();
 });
+
+// ၃။ Timeline Items Staggered Reveal Animation
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const items = entry.target.querySelectorAll('.timeline-item');
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'translateX(0)';
+        }, index * 200); // 200ms ခြားပြီး တစ်ခုချင်းစီ ပေါ်လာမည်
+      });
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('#experience').forEach((section) => {
+  // Initial state setup for timeline items
+  section.querySelectorAll('.timeline-item').forEach((item) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(-20px)';
+    item.style.transition = 'all 0.6s ease-out';
+  });
+  timelineObserver.observe(section);
+});
