@@ -68,3 +68,22 @@ document.querySelectorAll('#experience').forEach((section) => {
   });
   timelineObserver.observe(section);
 });
+
+// Mobile Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Link တစ်ခုခုနှိပ်လိုက်ရင် Menu ပြန်ပိတ်သွားစေရန်
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+}
