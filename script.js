@@ -1,4 +1,3 @@
-// ၁။ Scroll Reveal Animation (Website အောက်သို့ ဆင်းစဉ် Element များ ပေါ်လာစေခြင်း)
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -13,7 +12,7 @@ document.querySelectorAll('.section').forEach((section) => {
 
 // ၂။ Typewriter Effect for Hero Title Subheading
 const textElement = document.querySelector('.hero p');
-const textArray = ["Full Stack Developer", "Linux Enthusiast", "Problem Solver", "Cloud Engineer"];
+const textArray = ["Web Developer","IT Infrastructure Engineer", "Linux Enthusiast", "Problem Solver", "Cloud Engineer"];
 let textIndex = 0;
 let charIndex = 0;
 
